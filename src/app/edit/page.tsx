@@ -3,29 +3,32 @@
 import { useSearchParams } from "next/navigation";
 import { useState } from 'react'
 import Form from "next/form"
-import Title from "../title.tsx";
-import { requestGet } from "../request.get.ts";
-import { requestPatch } from "../request.patch.ts";
-import Loading from "../loading.tsx";
+import Title from "@view/title.tsx";
+import Loading from "@view/loading";
+import { requestGet } from "@model/request/get";
+import { requestPatch } from "@model/request/patch";
 
 export default function Edd() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
   const [data, setData] = useState(0);
   const [changed, setChanged] = useState(0);
- function addProduct(event) {
+  async function addProduct(event) {
     if(!changed)
        return;
     setChanged(false);
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
-    requestPatch({
+    const result = await requestPatch({
       id : formData.get('id'),
       name : formData.get('name'),
       quantity : formData.get('quantity'),
       price : formData.get('price'),
       image_urls : formData.getAll('image_urls')
     });
+    if( result ){
+      redirect('/list');
+    }
   };
   function Line(
     {title, type, name, value}: {title:string, type:string, name:string, value: string}

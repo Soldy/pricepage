@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { redirect } from "next/navigation";
-import Image from "next/image"
-import { requestGet } from "./request.get.ts";
-import { requestDelete } from "./request.delete.ts";
 import Link from 'next/link';
-import Loading from "./loading.tsx";
+import Image from "next/image"
+import { requestGet } from "@model/request/get";
+import { requestDelete } from "@model/request/delete";
+import Loading from "@view/loading";
 
 
 export default function ProductAsync( {id} : {id : number} ) : JSX.Element {

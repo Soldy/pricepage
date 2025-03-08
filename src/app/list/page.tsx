@@ -1,6 +1,6 @@
 "use client"; 
-import Title from "../title.tsx";
-import ProductList from "../productlist.tsx";
+import Title from "@view/title";
+import ProductList from "@view/productlist";
 
 export default function List() : JSX.Element {
   return (

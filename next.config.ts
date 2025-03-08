@@ -8,10 +8,25 @@ const nextConfig: NextConfig = {
     APIURL: process.env.APIURL,
   },
   images: {
-    domains: [
-      "ia.media-imdb.com",
-      "images-na.ssl-images-amazon.com",
-      "batgle.com"
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ia.media-imdb.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images-na.ssl-images-amazon.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'batgle.com',
+        port: '',
+        pathname: '/**',
+      },
     ]
   }
 };

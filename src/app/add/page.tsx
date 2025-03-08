@@ -1,18 +1,22 @@
 'use client'
+import { redirect } from 'next/navigation';
 import Form from "next/form"
-import Title from "../title.tsx";
-import { requestPost } from "../request.post.ts";
+import Title from "@view/title";
+import { requestPost } from "@model/request/post";
 
 export default function Add() {
- function addProduct(event) {
+ async function addProduct(event) {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
-    requestPost({
+    const result = await requestPost({
       name : formData.get('name'),
       quantity : formData.get('quantity'),
       price : formData.get('price'),
       image_urls : formData.getAll('image_urls')
     });
+    if( result ){
+      redirect('/list');
+    }
   };
   function Line(
     {title, type, name}: {title:string, type:string, name:string}

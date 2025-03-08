@@ -1,11 +1,11 @@
 
 import { useState } from 'react'
 import Link from 'next/link';
-import { requestGet } from "./request.get.ts";
-import Loading from "./loading.tsx";
+import { requestGet } from "@model/request/get";
+import Loading from "@view/loading";
 
 export default function ProductList(
-  {id, name} : {id:number,name:string}
+  {name} : {name:string}
 ) : JSX.Element {
   const query = {id:0,name:''};
   if(typeof name !== undefined){

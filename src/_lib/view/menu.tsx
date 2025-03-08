@@ -1,21 +1,8 @@
 'use client'
-import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { MenuPoint } from '@view/menupoint';
 
 export default function Menu() {
-  function MenuPoint(
-    {menu, url}: {menu:string, url:string}
-  ){
-    return(
-      <Link 
-        href={url} 
-        className={`link ${usePathname() === url ? 'active' : ''}`}
-      >
-        <div className="menuPoint">{ menu }</div>
-      </Link>
-    );
-  };
   return(
      <div className="mainMenu">
         <Image
