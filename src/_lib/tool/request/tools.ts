@@ -1,5 +1,5 @@
 
-import { seachquery, product } from "@tool/request/types";
+import { product } from "@tool/request/types";
 
 export function bearer(): string {
   return `Bearer ${process.env.APIKEY}`

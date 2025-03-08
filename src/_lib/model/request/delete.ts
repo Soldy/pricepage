@@ -1,5 +1,5 @@
 
-import { apiUrl, apiHeader } from "@tool/request/tools";
+import { requestBool } from "@tool/request/tools";
 
 export async function requestDelete(
   id : number

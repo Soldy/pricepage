@@ -1,13 +1,14 @@
 
-import { seachquery, product } from "@tool/request/types";
+import { searchquery, product } from "@tool/request/types";
 import { apiUrl, apiHeader } from "@tool/request/tools";
+
 export async function requestGet(
-  query = {id:0, name:''} : searchquery
+  query ? : searchquery
 ) : product[] {
   const response = await fetch(
     apiUrl(query),
     {
-      method: "GET", 
+      method: "GET",
       headers: apiHeader()
     }
   );
