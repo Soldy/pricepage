@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import Menu from "./menu.tsx";
 import Image from 'next/image';
+import Link from 'next/link';
 import { Geist, Geist_Mono } from "next/font/google";
+import Menu from "@view/menu";
+import Back from "@view/back";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,8 +29,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Menu></Menu>
+        <div className="sideMenu">
+          <Menu />
+        </div>
         <div className="workPlace">
+          <div className="backMenu">
+            <Back />
+          </div>
           <div className="workFrame">
             {children}
           </div>
@@ -36,12 +43,16 @@ export default function RootLayout({
             <p>
               powered by:
             </p>
-            <Image
-              src='/smg-group-logo.webp'
-              alt='Surelock McGill Group Logo'
-              width={176}
-              height={60}
-            />
+            <Link
+              href="/"
+            >
+              <Image
+                src='/smg-group-logo.webp'
+                alt='Surelock McGill Group Logo'
+                width={176}
+                height={60}
+              />
+            </Link>
           </div>
         </div>
       </body>

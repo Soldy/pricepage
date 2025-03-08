@@ -13,6 +13,17 @@ export default function ProductList(
   }
   const [last, setLast] = useState('');
   const [datas, setData] = useState(0);
+  function ResultStat(){
+    if( typeof name == 'undefined' ){
+       return (<></>);
+    }
+    return(
+      <div className="resultReport">
+        <span>{datas.length} </span>
+        results for &#34<span>{name}</span>&#34
+      </div>
+    );
+  };
   function ListLine (
      {id, name, quantity, price} : {
        id : string,
@@ -64,9 +75,7 @@ export default function ProductList(
        />
     ))}
     </div>
-    <div className="resultReport">
-     {datas.length} results
-    </div>
+    <ResultStat />
     </div>
   );
 };

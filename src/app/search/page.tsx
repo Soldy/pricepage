@@ -1,23 +1,32 @@
 'use client'
 import { useState } from 'react'
 import Form from "next/form";
-import Title from "../title.tsx";
-import ProductList from "../productlist.tsx";
+import Title from "@view/title";
+import ProductList from "@view/productlist";
 
 export default function Search() : JSX.Element {
   const [search, setSearch] = useState('');
+
+  function SearchZone(){
+    if(search == '' ){
+      return(<></>); 
+    }
+    return (
+      <ProductList name={search} />
+    );
+  }
   return (
     <div>
       <Title title="Search Product" />
       <Form action="/">
-        <input 
-          className="searhtag"
+        <input
+          className="searchtag"
           type="text"
           name="search"
           onChange={e => setSearch(e.target.value)}
         />
       </Form>
-        <ProductList name={search} />
+      <SearchZone />
     </div>
   );
 }
