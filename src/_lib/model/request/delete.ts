@@ -5,7 +5,7 @@ export async function requestDelete(
   id : number
 ): bool {
   return await requestBool(
-    "POST",
+    "DELETE",
     [id]
   );
 }
