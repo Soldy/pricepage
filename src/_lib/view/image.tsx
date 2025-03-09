@@ -3,9 +3,9 @@ export default function Images(
   {urls}: {urls:string[]}
 ): JSX.Element{
   let imgi = -1;
-  let img_size = urls.length;
   let block_end = 0;
   let class_current = 0;
+  const img_size = urls.length;
   const classes = [
     "imageOne",
     "imageTwo",

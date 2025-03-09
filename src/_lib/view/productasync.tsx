@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { redirect } from "next/navigation";
-import Link from 'next/link';
 import Images from "@view/image"
 import { requestGet } from "@model/request/get";
 import { requestDelete } from "@model/request/delete";
