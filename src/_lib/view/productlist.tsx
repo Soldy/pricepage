@@ -20,7 +20,7 @@ export default function ProductList(
     return(
       <div className="resultReport">
         <span>{datas.length} </span>
-        results for &#34<span>{name}</span>&#34
+        results for <span>{name}</span>
       </div>
     );
   };

@@ -4,7 +4,11 @@ import Link from 'next/link';
 import { Geist, Geist_Mono } from "next/font/google";
 import Menu from "@view/menu";
 import Back from "@view/back";
+import "@css/globals";
 import "./globals.css";
+import "@css/layout";
+import "@css/input";
+import "@css/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

@@ -24,7 +24,7 @@ export default function Add() {
     return(
       <div className="inputLine">
         <div className="inputTitle">
-          {title}
+          {title} :
         </div>
         <div className="inputInput">
           <input 
@@ -65,7 +65,12 @@ export default function Add() {
            title="image"
            type="url"
         />
-        <button type="submit">Submit</button>
+        <div className="inputLine">
+          <button
+            className="middleButton"
+            type="submit"
+          >Submit</button>
+       </div>
       </Form>
     </>
   );

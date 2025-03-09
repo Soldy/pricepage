@@ -1,0 +1,9 @@
+
+.loading{
+  position:relative;
+  width:100%;
+  height: 40px;
+  text-align: center;
+  font-size: 25px;
+  border-top: calc( 100vh/2 - 20px ) var(--invisible) solid;
+}

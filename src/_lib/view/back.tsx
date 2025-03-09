@@ -3,6 +3,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import '@css/back';
 
 export default function Menu() {
   if( usePathname() == '/'){
@@ -11,6 +12,7 @@ export default function Menu() {
   return (
     <div className="backMenu">
       <Link
+        className="backMenuLink"
         href="/"
       >
        ← main menu

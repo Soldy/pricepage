@@ -1,3 +1,5 @@
+import "@css/title";
+
 export default function Title(
   {title}:{title: string}
 ) {

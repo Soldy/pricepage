@@ -9,7 +9,7 @@ export default function Search() : JSX.Element {
 
   function SearchZone(){
     if(search == '' ){
-      return(<></>); 
+      return <></>;
     }
     return (
       <ProductList name={search} />

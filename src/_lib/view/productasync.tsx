@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import { redirect } from "next/navigation";
 import Link from 'next/link';
-import Image from "next/image"
+import Images from "@view/image"
 import { requestGet } from "@model/request/get";
 import { requestDelete } from "@model/request/delete";
 import Loading from "@view/loading";
+import "@css/product";
 
 
-export default function ProductAsync( {id} : {id : number} ) : JSX.Element {
+export default function ProductAsync(
+  {id} : {id : number} 
+): JSX.Element {
+  console.log('I want to belive');
   function ProductBox(
     { title, value } : {
       title : string,
@@ -17,7 +21,9 @@ export default function ProductAsync( {id} : {id : number} ) : JSX.Element {
     return (
         <div className="productBox">
           <div className="productBoxTitle">
-            {title}
+            <h3>
+              {title}
+            </h3>
           </div>
           <div>
             {value}
@@ -25,11 +31,14 @@ export default function ProductAsync( {id} : {id : number} ) : JSX.Element {
         </div>
 
     );
-  }
-  function Delete(){
-    requestDelete(data.id);
+  };
+  async function Edit(){
+    redirect(`/edit?id=${data.id}`);
+  };
+  async function Delete(){
+    await requestDelete(data.id);
     setDeleted(true);
-  }
+  };
   const [data, setData] = useState(0);
   const [deleted, setDeleted] = useState(false);
 
@@ -40,17 +49,17 @@ export default function ProductAsync( {id} : {id : number} ) : JSX.Element {
     requestGet({id}).then((d)=>{
       setData(d[0])
     });
-    return <><Loading /> </>;
+    return <Loading />;
   }
-  let imgi = 0;
   return(
     <div className="productShell">
       <div className="productData">
-      <div className="productName">
-        {data.name}
-      </div>
-      <div>
-        <div>
+        <div className="productName">
+          <h2>
+            {data.name}
+          </h2>
+        </div>
+        <div className="productDetails">
           <ProductBox
             title="Quantity"
             value={data.quantity}
@@ -61,29 +70,23 @@ export default function ProductAsync( {id} : {id : number} ) : JSX.Element {
           />
         </div>
       </div>
+      <Images
+        urls={data.image_urls}
+      />
+      <div className="productControl">
+        <div className="productControlHalf">
+          <button
+            className="middleButton"
+            onClick={Edit}
+          >Edit</button>
+        </div>
+        <div className="productControlHalf">
+          <button
+            className="middleButton"
+            onClick={Delete}
+          >Delete</button>
+        </div>
       </div>
-      <div className="productImages">
-      {data.image_urls.map((img) => {
-        imgi++;
-        return (
-          <Image 
-            key={imgi}
-            className="listImage"
-            src={img}
-            alt={data.name}
-            width={200}
-            height={200}
-          />
-      );})}
-     </div>
-     <div className="productControl">
-       <Link
-         href={`/edit?id=${data.id}`}
-       >Edit</Link>
-       <button
-         onClick={Delete}
-       >Delete</button>
-     </div>
     </div>
   );
 }
