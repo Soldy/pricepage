@@ -10,7 +10,6 @@ import "@css/product";
 export default function ProductAsync(
   {id} : {id : number} 
 ): JSX.Element {
-  console.log('I want to belive');
   function ProductBox(
     { title, value } : {
       title : string,

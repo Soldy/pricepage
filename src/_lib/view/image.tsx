@@ -22,7 +22,7 @@ export default function Images(
     const left = img_size - imgi;
     for (let i = 4 ;i > 0; i--){
       class_current = i;
-      if( i >= left ){
+      if( left >= i ){
         break;
       }
     }

@@ -4,7 +4,7 @@
 }
 
 .productData{
-  height:80px;
+  height:100px;
   width: 500px;
   margin: auto;
 }
@@ -21,8 +21,8 @@
 
 .productBox{
   float:left;
-  width:70px;
-  margin-left:calc( ( 100% - 152px ) / 3  );
+  width:100px;
+  margin-left:calc( 33.3333% - 67px );
   text-align:center;
   background: var(--background-sec);
   padding: 6px;
@@ -33,3 +33,8 @@
   width:49.9%;
 }
 
+@media (max-width: 576px) {
+  .productData{
+    width: 100%;
+  }
+}
