@@ -8,7 +8,6 @@ import "@css/globals";
 import "./globals.css";
 import "@css/layout";
 import "@css/input";
-import "@css/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

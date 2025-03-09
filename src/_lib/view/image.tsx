@@ -1,4 +1,6 @@
 
+import "@css/image";
+
 export default function Images(
   {urls}: {urls:string[]}
 ): JSX.Element{
