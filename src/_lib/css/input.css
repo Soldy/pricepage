@@ -29,12 +29,12 @@ button{
 input{
   border-radius: 0px;
   background-color: var(--background);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--blue);
   height: 25px;
   text-align:center;
   &:active, &:focus {
     font-size: 13px;
-    border: 2px solid var(--border-color);
+    border: 2px solid var(--blue);
     outline: none;
     background-color: var(--background);
   }
@@ -43,6 +43,11 @@ input{
     border-radius: 0px;
     background-color: var(--background-sec);
   }
+}
+
+::placeholder {
+   color: var(--bluetwo);
+   opacity: 1; /* Firefox */
 }
 
 .inputLine{

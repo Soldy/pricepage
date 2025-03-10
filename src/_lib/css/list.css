@@ -8,11 +8,15 @@
 
 .listLine{
   position: relative;
+  width: calc( 100% - 10px );
   width: 100%;
   text-align: center;
   font-size: 15px;
-  background: var(--background-sec);
+  background: var(--blue);
   margin-bottom:15px;
+  color: var(--background);
+  margin-left: 5px;
+  overflow: hidden;
 }
 
 .listPicSide{
@@ -29,7 +33,7 @@
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
-  color: var(--background-sec);
+  color: var(--blue);
   display: inline flow-root list-item;
 }
 
@@ -44,6 +48,7 @@
 .listName,
 .listNumber{
   text-align: left;
+  color: var(--background);
 }
 
 .listName,
@@ -60,7 +65,7 @@
 .listNumber{
   float:left;
   margin-left: 50px;
-  background-color: var(--background);
+  background-color: var(--red);
   padding: 6px;
   text-align:center;
   min-width:30px;
