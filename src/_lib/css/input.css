@@ -49,6 +49,7 @@ input{
   width:100%;
   height:2.8em;
   border-bottom: 5px solid var(--invisible);
+  display:table;
 }
 
 .middleButton{
