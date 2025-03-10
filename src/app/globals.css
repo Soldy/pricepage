@@ -41,12 +41,6 @@
   white-space: nowrap;
 }
 
-
-@media (max-width: 576px) {
-  .productData{
-    width: 100%;
-  }
-}
 .searchtag{
   width: calc( 100% - 10px );
   text-align:center;
