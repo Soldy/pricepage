@@ -38,7 +38,6 @@ export default function ProductList(
        urls : string[]
      }
   ) : JSX.Element {
-    console.log(urls);
     return (
       <div className="listLine">
         <Link
@@ -89,7 +88,6 @@ export default function ProductList(
     });
     return <><Loading /> </>;
   }
-  console.log(datas);
   return (
     <div>
     <div className="result">
