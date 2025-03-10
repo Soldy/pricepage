@@ -3,17 +3,20 @@ import { useState } from 'react'
 import Link from 'next/link';
 import { requestGet } from "@model/request/get";
 import Loading from "@view/loading";
+import "@css/list";
 
 export default function ProductList(
   {name} : {name:string}
 ) : JSX.Element {
+  const [last, setLast] = useState('');
+  const [datas, setData] = useState(0);
   const query = {id:0,name:''};
   if(typeof name !== undefined){
      query.name = name;
   }
-  const [last, setLast] = useState('');
-  const [datas, setData] = useState(0);
-  function ResultStat(){
+
+
+  function ResultStat(): JSX.Element {
     if( typeof name == 'undefined' ){
        return (<></>);
     }
@@ -24,14 +27,18 @@ export default function ProductList(
       </div>
     );
   };
+
+
   function ListLine (
-     {id, name, quantity, price} : {
+     {id, name, quantity, price, urls} : {
        id : string,
        name : string,
        quantity : number,
-       price : number
+       price : number,
+       urls : string[]
      }
   ) : JSX.Element {
+    console.log(urls);
     return (
       <div className="listLine">
         <Link
@@ -41,18 +48,38 @@ export default function ProductList(
            }}
         >
         <div
-          className="listNumber"
-        >{quantity}</div>
+          className="listPicSide"
+        >
+          <div
+            className="listPic"
+            style={{
+              backgroundImage:'url('+urls[0]+')'
+            }}
+          />
+        </div>
         <div
-          className="listNumber"
-        >{price}</div>
+          className="listTextSide"
+        >
         <div
           className="listName"
         >{name}</div>
+        <div
+          className="listDetails"
+        >
+           <div
+             className="listNumber"
+           >{quantity}</div>
+           <div
+             className="listNumber"
+           >{price}</div>
+         </div>
+       </div>
       </Link>
       </div>
     );
   };
+
+
   if(name !== last){
     setLast(query.name);
   }
@@ -62,6 +89,7 @@ export default function ProductList(
     });
     return <><Loading /> </>;
   }
+  console.log(datas);
   return (
     <div>
     <div className="result">
@@ -72,6 +100,7 @@ export default function ProductList(
          name={data.name}
          quantity={data.quantity}
          price={data.price}
+         urls={data.image_urls}
        />
     ))}
     </div>

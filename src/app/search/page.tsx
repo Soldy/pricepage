@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Form from "next/form";
 import Title from "@view/title";
 import ProductList from "@view/productlist";
+import "@css/search";
 
 export default function Search() : JSX.Element {
   const [search, setSearch] = useState('');

@@ -1,6 +1,6 @@
 :root {
   --background: #fff;
-  --background-sec: #eee;
+  --background-sec: #ddd;
   --foreground: #171717;
   --actionground: #1a4a89;
   --actionground-sec: #213770;
@@ -17,7 +17,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica,Calibri,Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
