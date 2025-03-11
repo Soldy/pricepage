@@ -1,0 +1,92 @@
+
+.listLine,
+.listPicSide,
+.listTextSide{
+  height: 70px;
+}
+
+
+.listLine{
+  position: relative;
+  width: calc( 100% - 10px );
+  text-align: center;
+  font-size: 15px;
+  background: var(--background-sec);
+  margin-left: 5px;
+  overflow: hidden;
+  margin-bottom:15px;
+}
+
+.listPicSide{
+  width:70px;
+}
+.listPic{
+  margin:5px;
+  width:60px;
+  height:60px;
+  aspect-ratio : 1 / 1;
+  background-repeat:no-repeat;
+  background-position: center center;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  color: var(--background-sec);
+  display: inline flow-root list-item;
+}
+
+.listName,
+.listNumber{
+  text-align: left;
+}
+
+.listName,
+.listDetails{
+  width: 100%;
+}
+
+.listPicSide,
+.listTextSide{
+  float:left;
+  border-left:5px solid var(--invisible);
+}
+
+.listNumber{
+  float:left;
+  margin-left: 50px;
+  background-color: var(--background);
+  padding: 6px;
+  text-align:center;
+  min-width:30px;
+}
+.listDetails{
+  margin-top:2px;
+  height:22px;
+}
+.listNumberPrice{
+  width:25px;
+}
+
+.listNumberQuantity{
+  width:25px;
+}
+
+.listTextSide{
+  width:calc( 100% - 70px);
+}
+.listName{
+  margin-top: 2px;
+  font-size: 1.2em;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result{
+  margin-top:10px;
+}
+
+.resultReport{
+  margin:0 0 15px 15px;
+}
+

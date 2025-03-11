@@ -1,0 +1,42 @@
+
+.image{
+  aspect-ratio : 1 / 1;
+  background-repeat:no-repeat;
+  background-position: center center;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  display: inline flow-root list-item;
+  background-color: var(--background-sec);
+  color: var(--background);
+}
+
+.images{
+  display: block;
+  width:100%;
+}
+
+.imageOne{
+  width:90%;
+  margin-left:4.9%;
+}
+
+.imageFour,
+.imageTwo{
+  width:44%;
+  margin-left:4%;
+}
+
+.imageThree{
+  width:30%;
+  margin-left:2.5%;
+}
+
+
+@media (min-width: 992px) {
+  .imageFour{
+    width:20%;
+  }
+}
+

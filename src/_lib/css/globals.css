@@ -1,0 +1,43 @@
+:root {
+  --background: #fff;
+  --background-sec: #ddd;
+  --foreground: #171717;
+  --actionground: #1a4a89;
+  --actionground-sec: #213770;
+  --border-color: #ddd;
+  --invisible: #fff0;
+}
+html,
+body {
+  max-width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Helvetica,Calibri,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link.active {
+   font-weight:light;
+   pointer-events: none;
+}
+.buttom{
+  text-align: center;
+}
+

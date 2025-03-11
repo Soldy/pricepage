@@ -1,0 +1,6 @@
+
+.searchtag{
+  width: calc( 100% - 10px );
+  text-align:center;
+  margin-left:5px;
+}
