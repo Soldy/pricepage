@@ -4,6 +4,7 @@ import Menu from "@view/menu";
 import Back from "@view/back";
 import "@css/globals";
 import "@css/layout";
+import "@css/menu";
 import "@css/input";
 
 
@@ -13,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
         <div className="sideMenu">
           <Menu />

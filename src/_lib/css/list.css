@@ -74,6 +74,7 @@
 .listTextSide{
   width:calc( 100% - 70px);
 }
+
 .listName{
   margin-top: 2px;
   font-size: 1.2em;

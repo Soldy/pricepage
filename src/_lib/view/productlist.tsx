@@ -9,11 +9,12 @@ import "@css/list";
 export default function ProductList(
   {name} : {name:string}
 ): React.JSX.Element {
+  const [first, setFirst] = useState<boolean>(false);
   const [last, setLast] = useState<string>('');
   const [datas, setData] = useState<product[]>([]);
   const query = {id:0,name:''};
   if(typeof name !== undefined){
-     query.name = name;
+    query.name = name;
   }
 
 
@@ -83,8 +84,9 @@ export default function ProductList(
   if(name !== last){
     setLast(query.name);
   }
-  if (!datas || (query.name !== last)) {
+  if (!datas || !first ||(query.name !== last)) {
     requestGet(query).then((d:product[])=>{
+      setFirst(true);
       setData(d as product[])
     });
     return <><Loading /> </>;

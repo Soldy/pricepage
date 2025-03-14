@@ -1,0 +1,42 @@
+
+.sideMenu{
+  color: var(--foreground);
+  background: var(--background);
+}
+
+.mainMenu,
+.sideMenu{
+   font-weight: bold;
+   width:200px;
+   font-weight: bold;
+   font-size: 1.4em;
+}
+
+.mainMenu{
+  margin-left: calc( 100%/2 - 100px);
+}
+
+.menuPoint{
+  margin-left:40px;
+  width:140px;
+}
+
+@media (max-width: 575px) {
+  .sideMenu{
+    display:none;
+  }
+}
+
+@media (min-width: 576px) {
+  .mainMenu{
+    display:none;
+  }
+  .sideMenu{
+    position:relative;
+    float:left;
+  }
+  .sideMenu{
+    min-height:100vh;
+  }
+}
+

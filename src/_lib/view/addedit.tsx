@@ -2,14 +2,15 @@
 'use client'
 import { useState } from 'react'
 import {
-  redirect, usePathname
+  redirect
 } from "next/navigation";
 import Form from "next/form"
-import Title from "@view/title";
-import Images from "@view/image";
 import { productout, product } from "@tool/request/types";
 import { requestGet } from "@model/request/get";
 import { requestSave } from "@model/request/save";
+import Title from "@view/title";
+import Images from "@view/image";
+import Loading from "@view/loading";
 import useId from "@tool/getid";
 
 
@@ -17,6 +18,7 @@ export default function AddEdit(
   {title} : {title:string, id?:number}
 ): React.JSX.Element {
 
+  const [first, setFirst] = useState<boolean>(false);
   const [fields, setFields] = useState<productout>({
     id : 0,
     name : '',
@@ -25,11 +27,6 @@ export default function AddEdit(
     image_urls : ['']
   });
   const id = useId();
-  if (id != fields.id){
-    requestGet({id}).then((d:product[])=>{
-      setFields(d[0]);
-    });
-  }
 
 
  function imageCheck(urls: FormDataEntryValue[] | string[]): string[]{
@@ -82,6 +79,13 @@ export default function AddEdit(
     );
   };
 
+  if (!first || id != fields.id){
+    requestGet({id}).then((d:product[])=>{
+      setFirst(true);
+      setFields(d[0]);
+    });
+    return <Loading />;
+  }
 
 
   function Line(
@@ -138,7 +142,7 @@ export default function AddEdit(
     <>
       <Title title={title} />
       <Form 
-        action={usePathname()}
+        action="/edit"
         onBlur={imageOnblur}
         onSubmit={saveProduct}>
         <Line

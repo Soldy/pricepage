@@ -1,25 +1,19 @@
 import { useState } from 'react'
 import { redirect } from "next/navigation";
-import Images from "@view/image"
+import { product } from "@tool/request/types";
 import { requestGet } from "@model/request/get";
 import { requestDelete } from "@model/request/delete";
+import Images from "@view/image"
 import Loading from "@view/loading";
-import { productout } from "@tool/request/types";
 import useId from "@tool/getid";
 import "@css/product";
 
 
 export default function ProductAsync(): React.JSX.Element {
-  const [data, setData] = useState({
-    id : 0,
-    name : '',
-    quantity : 0.00,
-    price : 0,
-    image_urls : ['']
-  });
+  const [data, setData] = useState<product>();
 
   const id = useId();
-  const [deleted, setDeleted] = useState(false);
+  const [deleted, setDeleted] = useState<boolean>(false);
   function ProductBox(
     { title, value } : {
       title : string,
@@ -42,22 +36,22 @@ export default function ProductAsync(): React.JSX.Element {
   };
   async function Edit(){
     if(id != 0){
-      redirect(`/edit?id=${data.id}`);
+      redirect(`/edit?id=${id}`);
     }
   };
   async function Delete(){
-    await requestDelete(data.id);
+    await requestDelete(id);
     setDeleted(true);
   };
 
   if (deleted){
     redirect('/');
   }
-  if (!data){
+  if ( !data ){
     requestGet({
       id
-    }).then((d:productout[])=>{
-      setData(d[0])
+    }).then((d:product[])=>{
+      setData(d[0]);
     });
     return <Loading />;
   }

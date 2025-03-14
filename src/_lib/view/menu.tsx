@@ -12,6 +12,7 @@ export default function Menu(): React.JSX.Element {
         width={200}
         height={200}
         priority
+        suppressHydrationWarning
       />
       <MenuPoint 
         url="/list"

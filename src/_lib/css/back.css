@@ -1,5 +1,4 @@
 .backMenu{
-   display:block;
    height:1.8em;
    width:100%;
 }
@@ -7,3 +6,16 @@
   font-size:1.4em;
   font-weight:bolder;
 }
+
+@media (max-width: 575px) {
+  .backMenu{
+    display:block;
+  }
+}
+
+@media (min-width: 576px) {
+  .backMenu{
+    display:none;
+  }
+}
+
